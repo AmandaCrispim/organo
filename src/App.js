@@ -47,6 +47,10 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState([])
 
+  function deletarColaborador () {
+    console.log('deletando colaborador');
+  }
+
   const aoNovoColaboradorAdicionado = (colaborador) => {
     debugger
     setColaboradores([...colaboradores, colaborador])
@@ -56,13 +60,16 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {times.map(time => <Time 
-        key={time.nome} 
-        nome={time.nome} 
-        corPrimaria={time.corPrimaria} 
-        corSecundaria={time.corSecundaria}
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-      />)}
+      {times.map(time => 
+        <Time 
+          key={time.nome} 
+          nome={time.nome} 
+          corPrimaria={time.corPrimaria} 
+          corSecundaria={time.corSecundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          aoDeletar={deletarColaborador}
+        />
+      )}
       <Rodape />
     </div>
   );
