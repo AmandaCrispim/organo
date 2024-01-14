@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Banner from'./componentes/Banner';
-import Formulario from'./componentes/Formulario';
+import Banner from './componentes/Banner';
+import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import Rodape from './componentes/Rodape';
 
@@ -21,7 +21,7 @@ function App() {
     },
     {
       nome: 'Devops',
-      corS: '#FDE7E8'
+      cor: '#FDE7E8'
     },
     {
       nome: 'UX e Design',
@@ -35,38 +35,38 @@ function App() {
       nome: 'Inovação e Gestão',
       cor: '#FFEEDF'
     }
-  ])
+  ]);
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState([]);
 
-  function deletarColaborador () {
+  function deletarColaborador() {
     console.log('deletando colaborador');
   }
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     debugger
-    setColaboradores([...colaboradores, colaborador])
-  }
+    setColaboradores([...colaboradores, colaborador]);
+  };
 
   function mudarCorDoTime(cor, nome) {
     setTimes(times.map(time => {
       if(time.nome === nome) {
-        time.corPrimaria = cor;
+        time.cor = cor;
       }
       return time;
     }));
   }
+
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
       {times.map(time => 
         <Time 
           mudarCor={mudarCorDoTime}
           key={time.nome} 
           nome={time.nome} 
-          corPrimaria={time.corPrimaria} 
-          corSecundaria={time.corSecundaria}
+          cor={time.cor}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           aoDeletar={deletarColaborador}
         />
