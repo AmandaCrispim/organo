@@ -8,30 +8,37 @@ function App() {
 
   const [times, setTimes] = useState ([
     {
+      id: uuidv4(),
       nome: 'Programação',
       cor: '#D9F7E9'
     },
     {
+      id: uuidv4(),
       nome: 'Front-end',
       cor: '#E8F8FF'
     },
     {
+      id: uuidv4(),
       nome: 'Data Science',
       cor: '#F0F8E2'
     },
     {
+      id: uuidv4(),
       nome: 'Devops',
       cor: '#FDE7E8'
     },
     {
+      id: uuidv4(),
       nome: 'UX e Design',
       cor: '#FAE9F5'
     },
     {
+      id: uuidv4(),
       nome: 'Mobile',
       cor: '#FFF5D9'
     },
     {
+      id: uuidv4(),
       nome: 'Inovação e Gestão',
       cor: '#FFEEDF'
     }
@@ -48,9 +55,9 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   };
 
-  function mudarCorDoTime(cor, nome) {
+  function mudarCorDoTime(cor, id) {
     setTimes(times.map(time => {
-      if(time.nome === nome) {
+      if(time.nome === id) {
         time.cor = cor;
       }
       return time;
