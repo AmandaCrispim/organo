@@ -3,7 +3,11 @@ import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import Rodape from './componentes/Rodape';
+<<<<<<< HEAD
 import { v4 as uuidv4 } from 'uuid';
+=======
+import { v4 as uuidv4 } from 'uuid'
+>>>>>>> e198ff12fc4fd4223dd782552a9f58ff1bca5bb8
 
 function App() {
 
@@ -47,8 +51,8 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState([]);
 
-  function deletarColaborador() {
-    console.log('deletando colaborador');
+  function deletarColaborador(id) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
   }
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
@@ -57,8 +61,10 @@ function App() {
   };
 
   function mudarCorDoTime(cor, id) {
+    console.log(cor)
+    console.log(id)
     setTimes(times.map(time => {
-      if(time.nome === id) {
+      if(time.id === id) {
         time.cor = cor;
       }
       return time;
@@ -73,6 +79,7 @@ function App() {
         <Time 
           mudarCor={mudarCorDoTime}
           key={time.nome} 
+          id={time.id}
           nome={time.nome} 
           cor={time.cor}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
