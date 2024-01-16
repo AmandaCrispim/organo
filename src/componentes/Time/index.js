@@ -1,7 +1,6 @@
 import Colaborador from '../Colaborador'
 import './Time.css'
 import hexToRgba from 'hex-to-rgba'
-import { v4 as uuidv4 } from 'uuid'
 
 const Time = (props) => {
 

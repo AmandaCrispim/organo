@@ -58,7 +58,7 @@ function App() {
 
   function mudarCorDoTime(cor, id) {
     setTimes(times.map(time => {
-      if(time.nome === id) {
+      if(time.id === id) {
         time.cor = cor;
       }
       return time;
