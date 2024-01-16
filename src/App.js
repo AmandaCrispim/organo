@@ -57,6 +57,8 @@ function App() {
   };
 
   function mudarCorDoTime(cor, id) {
+    console.log(cor)
+    console.log(id)
     setTimes(times.map(time => {
       if(time.id === id) {
         time.cor = cor;
@@ -73,6 +75,7 @@ function App() {
         <Time 
           mudarCor={mudarCorDoTime}
           key={time.nome} 
+          id={time.id}
           nome={time.nome} 
           cor={time.cor}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
