@@ -27,12 +27,11 @@ const Formulario = (props) => {
     };
 
     const aoCadastrarTime = (evento) => {
-        evento.preventDefault()
-        props.cadastrarTime({
-            nome: nomeTime, cor: corTime})
-            setNomeTime('');
-            setCorTime('');
-        }
+        evento.preventDefault();
+        props.cadastrarTime({ nome: nomeTime, cor: corTime });
+        setNomeTime('');
+        setCorTime('');
+    }
 
     return (
         <section className="formulario">
