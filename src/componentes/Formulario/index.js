@@ -7,12 +7,12 @@ import Botao from '../Botao'
 
 const Formulario = (props) => {
 
-    const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
-    const [nomeTime, setNomeTime] = useState('')
-    const [corTime, setCorTime] = useState('')
+    const [nome, setNome] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [time, setTime] = useState('');
+    const [nomeTime, setNomeTime] = useState('');
+    const [corTime, setCorTime] = useState('');
 
 
     const aoSalvar = (evento) => {
@@ -20,11 +20,19 @@ const Formulario = (props) => {
         props.aoColaboradorCadastrado({
             nome, cargo, imagem, time
         })
-        setNome('')
-        setCargo('')
-        setImagem('')
-        setTime('')
-    }
+        setNome('');
+        setCargo('');
+        setImagem('');
+        setTime('');
+    };
+
+    const aoCadastrarTime = (evento) => {
+        evento.preventDefault()
+        props.cadastrarTime({
+            nome: nomeTime, cor: corTime})
+            setNomeTime('');
+            setCorTime('');
+        }
 
     return (
         <section className="formulario">
@@ -61,11 +69,7 @@ const Formulario = (props) => {
                 Criar card
                 </Botao>
             </form>
-            {/* novo formulário */
-            <form onSubmit={(evento) => {
-                evento.preventDefault()
-                props.cadastrarTime({ nome: nomeTime, cor: corTime })
-            }}>
+            <form onSubmit={aoCadastrarTime}>  
                 <h2>Preencha os dados para criar um novo time</h2>
                 <CampoTexto 
                 obrigatorio 
@@ -85,10 +89,8 @@ const Formulario = (props) => {
                 Criar um novo time
                 </Botao>
             </form>
-    }
-</section>
-
-    )
+        </section>
+    );
 }
 
 export default Formulario
