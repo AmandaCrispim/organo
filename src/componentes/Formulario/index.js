@@ -7,12 +7,12 @@ import Botao from '../Botao'
 
 const Formulario = (props) => {
 
-    
-
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [nomeTime, setNomeTime] = useState('')
+    const [corTime, setCorTime] = useState('')
 
 
     const aoSalvar = (evento) => {
@@ -61,7 +61,33 @@ const Formulario = (props) => {
                 Criar card
                 </Botao>
             </form>
-        </section>
+            {/* novo formulário */
+            <form onSubmit={(evento) => {
+                evento.preventDefault()
+                props.cadastrarTime({ nome: nomeTime, cor: corTime })
+            }}>
+                <h2>Preencha os dados para criar um novo time</h2>
+                <CampoTexto 
+                obrigatorio 
+                label="Nome" 
+                placeholder="Digite o nome do time"
+                valor={nomeTime}
+                aoAlterado={valor => setNomeTime(valor)}
+                />
+                <CampoTexto 
+                obrigatorio 
+                label="Cor" 
+                placeholder="Digite a cor do time"
+                valor={corTime}
+                aoAlterado={valor => setCorTime(valor)}
+                />
+                <Botao>
+                Criar um novo time
+                </Botao>
+            </form>
+    }
+</section>
+
     )
 }
 
