@@ -74,10 +74,10 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario 
+      <Formulario
         cadastrarTime={cadastrarTime}
-        times={times.map(time => time.nome)} a
-        oColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} 
+        times={times.map(time => time.nome)}
+        aoNovoColaboradorAdicionado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
       />
       {times.map(time => 
         <Time 
