@@ -22,6 +22,7 @@ const Time = (props) => {
                     cargo={colaborador.cargo} 
                     imagem={colaborador.imagem}
                     aoDeletar={() => props.aoDeletar(colaborador.id)}
+                    aoFavoritar={() => props.aoFavoritar(colaborador.id)}
                 />;
                 })}
             </div>
