@@ -1,4 +1,5 @@
-import { FaTrashAlt, AiFillHeart, AiOutlineHeart } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import './Colaborador.css'
 
 const Colaborador = ({ nome, imagem, cargo, corDeFundo, aoDeletar, aoFavoritar}) => {
@@ -6,7 +7,7 @@ const Colaborador = ({ nome, imagem, cargo, corDeFundo, aoDeletar, aoFavoritar})
         aoFavoritar(colaborador.id);
     }
 
-    const propsfavorito = {
+    const favorito = {
         size: 25,
         onClick: favoritar
     }
@@ -26,8 +27,8 @@ const Colaborador = ({ nome, imagem, cargo, corDeFundo, aoDeletar, aoFavoritar})
                 <h5>{cargo}</h5>
                 <div className="favoritar">
                 {aoFavoritar.colaborador
-                    ? <AiFillHeart onClick={aoFavoritar} />
-                    : <AiOutlineHeart onClick={aoFavoritar} />
+                    ? <AiFillHeart onClick={() =>aoFavoritar()} />
+                    : <AiOutlineHeart onClick={() =>aoFavoritar()} />
                 } 
                 </div>
             </div>
